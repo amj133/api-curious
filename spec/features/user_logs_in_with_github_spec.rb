@@ -26,6 +26,7 @@ describe "user logs in" do
                               "extra" =>
                               {"raw_info" =>
                                    {"login" => "amj133",
+                                    "avatar_url" => "https://avatars0.githubusercontent.com/u/31484552?v=4",
                                     "id" => 31484552}}
                               })
   end
