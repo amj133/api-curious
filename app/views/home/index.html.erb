@@ -1,3 +1,7 @@
-<h3>Are you curious about API's?...Well So am I</h3>
-
-<%= link_to "Login with GitHub", github_login_path %>
+<% if current_user %>
+  <h3>Welcome <%= current_user.login %></h3>
+  <%= link_to "logout", logout_path, method: :delete %>
+<% else %>
+  <h3>Are you curious about API's?...Well So am I</h3>
+  <%= link_to "Login with GitHub", github_login_path %>
+<% end %>
