@@ -11,6 +11,6 @@ describe "user number of followers display on show page" do
 
     visit user_path(user)
 
-    expect(page).to have_content("Followers 2")
+    expect(page).to have_content("Followers (2)")
   end
 end
