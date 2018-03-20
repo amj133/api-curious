@@ -27,7 +27,7 @@
       Plus
     </div>
     <div>
-      Mini
+      <%= link_to "logout", logout_path, method: :delete %>
     </div>
   </div>
 </nav>
@@ -85,6 +85,12 @@
       <div>
         Customize your pinned repositories
       </div>
+    </div>
+
+    <div class="repo-grid">
+      <% @repos.each do |repo| %>
+        <%= repo.name %>
+      <% end %>
     </div>
   </main>
 
