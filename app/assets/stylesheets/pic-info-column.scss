@@ -1,0 +1,49 @@
+.pic-info-column {
+  position: absolute;
+  top: 51px;
+  width: 230px;
+  background-color: rgb(152, 236, 136);
+  height: 100%;
+  left: 225px;
+  .profile-pic-container {
+    position: absolute;
+    top: 25px;
+    width: 100%;
+    height: 230px;
+    .profile-pic {
+      height: 100%;
+      border-radius: 7px;
+    }
+  }
+  .profile-info {
+    position: absolute;
+    background-color: rgb(138, 230, 233);
+    top: 255px;
+    width: 100%;
+    height: 275px;
+    .profile-info-name {
+      padding-top: 13px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .profile-info-username {
+      color: #666;
+      font-size: 18px;
+    }
+    .profile-info-bio {
+      font-size:  14px;
+      margin-top: 13px;
+      padding-bottom: 12px;
+      color: #666;
+      border-bottom: 0.3px solid rgba(102, 102, 102, 0.8);
+    }
+    .profile-info-location {
+      font-size: 13.2px;
+      margin-top: 18px;
+    }
+    .profile-info-email {
+      font-size: 13.2px;
+      margin-top: 8px;
+    }
+  }
+}

@@ -10,6 +10,7 @@ RSpec.describe User, type: :model do
             "extra" =>
                {"raw_info" =>
                  {"login" => "amj133",
+                  "avatar_url" => "https://avatars0.githubusercontent.com/u/31484552?v=4",
                   "id" => 31484552}}}
 
     user = User.from_omniauth(auth)
@@ -30,5 +31,5 @@ RSpec.describe User, type: :model do
       expect(User.count).to eq(1)
       expect(user.uid).to eq("123")
     end
-  end 
+  end
 end

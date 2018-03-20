@@ -1,0 +1,94 @@
+<nav>
+  <div class="nav-link-container-left">
+    <div>
+      GHI
+    </div>
+    <div class="nav-search-bar">
+      Search GitHub
+    </div>
+    <div>
+      Pull requests
+    </div>
+    <div>
+      Issues
+    </div>
+    <div>
+      Marketplace
+    </div>
+    <div>
+      Explore
+    </div>
+  </div>
+  <div class="nav-link-container-right">
+    <div>
+      Bell
+    </div>
+    <div>
+      Plus
+    </div>
+    <div>
+      Mini
+    </div>
+  </div>
+</nav>
+
+<div class="main-body">
+  <section class="pic-info-column">
+    <div class="profile-pic-container">
+      <%= image_tag current_user.avatar_url, class: "profile-pic" %>
+    </div>
+
+    <div class="profile-info">
+      <div class="profile-info-name">
+        <%= current_user.name %><br>
+      </div>
+      <div class="profile-info-username">
+        <%= current_user.login %><br>
+      </div>
+      <div class="profile-info-bio">
+        <%= current_user.bio %>
+      </div>
+      <div class="profile-info-location">
+        <%= current_user.location %>
+      </div>
+      <div class="profile-info-email">
+        <%= current_user.email %>
+      </div>
+    </div>
+  </section>
+
+  <main class="repo-stats-column">
+    <div class="repo-stats-header">
+      <div class="repo-stats-link-container">
+        <div>
+          Overview
+        </div>
+        <div>
+          Repositories
+        </div>
+        <div>
+          Stars
+        </div>
+        <div>
+          Followers
+        </div>
+        <div>
+          Following
+        </div>
+      </div>
+    </div>
+
+    <div class="pinned-repositories">
+      <div>
+        Pinned Repositories
+      </div>
+      <div>
+        Customize your pinned repositories
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+
+  </footer>
+</div>

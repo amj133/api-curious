@@ -17,16 +17,20 @@ describe "user logs in" do
     OmniAuth.config.test_mode = true
 
     OmniAuth.config.mock_auth[:github] =
-      OmniAuth::AuthHash.new({
-                              "provider" => "github",
-                              "uid" => 31484552,
-                              "info" =>
-                              {"email" => "amj@vt.edu", "urls" => {"GitHub" => "https://github.com/amj133"}},
-                              "credentials" => {"token" => "bb9520046738fe2eb647a037ef5065cb6eebfd40", "expires" => false},
-                              "extra" =>
-                              {"raw_info" =>
-                                   {"login" => "amj133",
-                                    "id" => 31484552}}
-                              })
+      OmniAuth::AuthHash.new(
+        {
+          "provider" => "github",
+          "uid" => 31484552,
+          "info" =>
+            {"email" => "amj@vt.edu", "urls" => {"GitHub" => 
+                                                  "https://github.com/amj133"}},
+          "credentials" => {"token" => "bb9520046738fe2eb647a037ef5065cb6eebfd40", "expires" => false},
+          "extra" =>
+            {"raw_info" =>
+              {"login" => "amj133",
+               "avatar_url" => "https://avatars0.githubusercontent.com/u/31484552?v=4",
+               "id" => 31484552}}
+        }
+      )
   end
 end
