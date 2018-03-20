@@ -9,6 +9,31 @@
   </head>
 
   <body>
+    <nav>
+    </nav>
+
+    <div class="main-body">
+      <section class="pic-info-column">
+        <div class="profile-pic-container">
+          <%= image_tag current_user.avatar_url, class: "profile-pic" %>
+        </div>
+
+        <div class="profile-info">
+
+        </div>
+      </section>
+
+      <main class="repo-stats-column">
+        <div class="repo-stats-header">
+
+        </div>
+      </main>
+
+      <footer class="footer">
+
+      </footer>
+    </div>
+
     <%= yield %>
   </body>
 </html>
