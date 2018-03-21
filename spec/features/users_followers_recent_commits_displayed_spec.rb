@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "displays users followers" do
-  it "shows feed of followers recent commits" do
+  xit "shows feed of followers recent commits" do
     user = create(:user,
                   login: ENV['GITHUB_TEST_ENVIRONMENT_LOGIN'],
                   oauth_token: ENV['GITHUB_TEST_ENVIRONMENT_ACCESS_TOKEN'],

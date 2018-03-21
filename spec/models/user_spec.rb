@@ -18,11 +18,10 @@ RSpec.describe User, type: :model do
   }
 
   it "can be created from oauth hash" do
-    # auth = {"provider" => "github",
-    #         "uid" => 31484552,
+    # auth = {"uid" => 31484552,
     #         "info" =>
     #           {"email"=>"amj@vt.edu", "urls" => {"GitHub" => "https://github.com/amj133"}},
-    #         "credentials" => {"token" => "bb9520046738fe2eb647a037ef5065cb6eebfd40", "expires" => false},
+    #         "credentials" => {"token" => "12345", "expires" => false},
     #         "extra" =>
     #            {"raw_info" =>
     #              {"login" => "amj133",
