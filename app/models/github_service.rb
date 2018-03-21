@@ -41,4 +41,23 @@ class GithubService
     end
   end
 
+  def find_recent_commits
+    date = (Date.today - 14).strftime('%Y-%m-%d')
+
+    response = @conn.get do |req|
+      req.url "/search/commits?q=author-date:>#{date} author:#{@user.login}"
+      req.headers['Accept'] = "application/vnd.github.cloak-preview+json"
+    end
+
+    response = JSON.parse(response.body, symbolize_names: true)
+    commits = []
+    25.times do |i|
+      commits << Commit.new(response[:items][i][:repository][:name], response[:items][i][:url])
+    end
+    commits
+  end
+
+  # https://api.github.com/search/commits/q=author-date:>2018-03-06 author:amj133
+  # https://api.github.com/search/commits?q=author-date:>2018-03-12 author:amj133
+
 end
