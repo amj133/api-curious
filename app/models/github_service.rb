@@ -27,4 +27,11 @@ class GithubService
     end
   end
 
+  def find_following
+    response = get_url("https://api.github.com/users/#{@user.login}/following")
+    response.map do |following|
+      Following.new(following[:login])
+    end
+  end
+
 end
