@@ -3,16 +3,19 @@ require 'rails_helper'
 describe GithubUser do
   let(:attrs) {
     {
-      uid: 15,
-      login: "monkeysrule",
-      email: "monkeysrule@gmail.com",
-      avatar_url: "https://monkeysrule.com",
-      name: "Monkey Man"
-      bio: "My mother was a wildlife biologist and I love monkeys!"
-      location: "Denver, CO"
+      "uid" => 15,
+      "info" => { "email" => "monkeysrule@gmail.com", "urls" => {"GitHub" => "https://github.com/amj133"}},
+      "extra" =>
+        {"raw_info" =>
+          {"login" => "monkeysrule",
+           "avatar_url" => "https://monkeysrule.com",
+           "id" => 31484552,
+           "name" => "Monkey Man",
+           "location" => "Denver, CO",
+           "bio" => "My mother was a wildlife biologist and I love monkeys!"}}
     }
   }
-  subject{ Githubuser.new(attrs) }
+  subject{ GithubUser.new(attrs) }
 
   it "exists" do
     expect(subject).to be_a(GithubUser)
