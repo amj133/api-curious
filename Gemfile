@@ -46,6 +46,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_bot_rails'
+  gem 'capybara-mechanize'
+  gem 'launchy'
 end
 
 group :development do

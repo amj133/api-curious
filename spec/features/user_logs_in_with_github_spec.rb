@@ -9,7 +9,7 @@ describe "user logs in" do
 
     click_on("Login with GitHub")
 
-    expect(page).to have_content("Welcome amj133")
+    expect(page).to have_content("amj133")
     expect(page).to have_link("logout")
   end
 
@@ -22,7 +22,7 @@ describe "user logs in" do
           "provider" => "github",
           "uid" => 31484552,
           "info" =>
-            {"email" => "amj@vt.edu", "urls" => {"GitHub" => 
+            {"email" => "amj@vt.edu", "urls" => {"GitHub" =>
                                                   "https://github.com/amj133"}},
           "credentials" => {"token" => "bb9520046738fe2eb647a037ef5065cb6eebfd40", "expires" => false},
           "extra" =>
