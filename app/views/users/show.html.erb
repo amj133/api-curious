@@ -92,6 +92,19 @@
         <%= repo.name %>
       <% end %>
     </div>
+
+    <div class="recent-commits">
+      <p>Contribution Activity - Recent Commits</p>
+      <% @recent_commits.each do |commit| %>
+        <div class="commit-name">
+          <%= commit.name %>
+        </div>
+
+        <div class="commit-url">
+          <%= commit.url %>
+        </div>
+      <% end %>
+    </div>
   </main>
 
   <footer class="footer">
