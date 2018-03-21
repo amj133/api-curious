@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     @following = GithubService.new(current_user).find_following
     @starred = GithubService.new(current_user).find_starred
     @recent_commits = GithubService.new(current_user).find_recent_commits
+    # gh = GithubService.new(current_user)
+    # gh.find_followers
+    # @followers_with_recent_commits = gh.find_followers_commits
   end
 
 end
