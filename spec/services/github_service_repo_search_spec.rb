@@ -1,12 +1,6 @@
 require 'rails_helper'
 
 describe GithubServiceRepoSearch do
-  # let(:user) {
-  #   login: ENV['GITHUB_TEST_ENVIRONMENT_LOGIN'],
-  #   oauth_token: ENV['GITHUB_TEST_ENVIRONMENT_ACCESS_TOKEN'],
-  #   avatar_url: "https://avatars0.githubusercontent.com/u/31484552?v=4"
-  # }
-
   it "has a collection of raw repo data" do
     user = create(:user,
                   login: ENV['GITHUB_TEST_ENVIRONMENT_LOGIN'],

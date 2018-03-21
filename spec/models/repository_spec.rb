@@ -1,11 +1,20 @@
 require 'rails_helper'
 
 describe Repository, type: :model do
-  let(:name) { "monkey_malone" }
-  subject { Repository.new(name) }
+  let(:attrs) {
+    {
+      name: "monkey_malone",
+      owner: {url: "https://monkey-man.com"}
+    }
+  }
+  subject { Repository.new(attrs) }
 
-  it "exists and has a name" do
+  it "exists" do
     expect(subject).to be_a(Repository)
+  end
+
+  it "sets attributes with reader methods" do
     expect(subject.name).to eq("monkey_malone")
+    expect(subject.url).to eq("https://monkey-man.com")
   end
 end
