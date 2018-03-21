@@ -6,6 +6,14 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require 'support/factory_bot'
+require 'vcr'
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/cassettes"
+  config.hook_into :webmock
+  config.filter_sensitive_data('<GITHUB_API_KEY>') { ENV['GITHUB_TEST_ENVIRONMENT_ACCESS_TOKEN']}
+end
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -56,7 +64,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
-
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|

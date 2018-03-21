@@ -1,8 +1,8 @@
 class Repository
   attr_reader :name
 
-  def initialize(name)
-    @name = name
+  def initialize(attrs = {})
+    @name = attrs[:name]
   end
 
 end
