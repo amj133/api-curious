@@ -10,6 +10,9 @@ require 'webmock/rspec'
 require 'vcr'
 
 VCR.configure do |config|
+  config.ignore_request do |request|
+    request.uri == "https://api.github.com/login/oauth/authorize"
+  end
   config.cassette_library_dir = "spec/fixtures/cassettes"
   config.hook_into :webmock
   config.filter_sensitive_data('<GITHUB_API_KEY>') { ENV['GITHUB_TEST_ENVIRONMENT_ACCESS_TOKEN']}

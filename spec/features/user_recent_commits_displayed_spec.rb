@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "user's recent commits are displayed in feed" do
-  it "displays recent commits on show" do
+  xit "displays recent commits on show" do
     user = create(:user,
                   login: ENV['GITHUB_TEST_ENVIRONMENT_LOGIN'],
                   oauth_token: ENV['GITHUB_TEST_ENVIRONMENT_ACCESS_TOKEN'],

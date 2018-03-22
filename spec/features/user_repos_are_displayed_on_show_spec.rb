@@ -7,18 +7,6 @@ describe "user repos displayed on show page" do
            oauth_token: 12345,
            avatar_url: "https://monkeys-rule.org")
 
-    # repo_uri = "users/monkey-man/repos"
-    # get_stub("user_repos", repo_uri)
-    #
-    # follower_uri = "users/monkey-man/followers"
-    # get_stub("user_followers", follower_uri)
-    #
-    # following_uri = "users/monkey-man/following"
-    # get_stub("user_following", following_uri)
-    #
-    # starred_uri = "users/monkey-man/starred"
-    # get_stub("user_starred", starred_uri)
-
     monkey_man_test_stubs
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)

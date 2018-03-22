@@ -35,12 +35,12 @@ class GithubService
   #   end
   # end
 
-  def find_starred
-    response = get_url("https://api.github.com/users/#{@user.login}/starred")
-    response.map do |starred|
-      Starred.new(starred[:full_name])
-    end
-  end
+  # def find_starred
+  #   response = get_url("https://api.github.com/users/#{@user.login}/starred")
+  #   response.map do |starred|
+  #     Starred.new(starred[:full_name])
+  #   end
+  # end
 
   def find_recent_commits(username = @user.login)
     response = @conn.get do |req|
