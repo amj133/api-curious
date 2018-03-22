@@ -6,7 +6,7 @@ class GithubServiceFollowersSearch
   end
 
   def run
-    json_response("/users/#{user.login}/followers")
+    json_response("users/#{user.login}/followers")
   end
 
   private
