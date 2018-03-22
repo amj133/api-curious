@@ -16,5 +16,6 @@ describe Repository, type: :model do
   it "sets attributes with reader methods" do
     expect(subject.name).to eq("monkey_malone")
     expect(subject.url).to eq("https://monkey-man.com")
+    expect(subject.starred?).to eq("no")
   end
 end
