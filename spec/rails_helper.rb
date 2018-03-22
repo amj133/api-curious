@@ -36,6 +36,11 @@ def monkey_man_test_stubs
 
   starred_uri = "users/monkey-man/starred"
   get_stub("user_starred", starred_uri)
+
+  date_limit = (Date.today - 14).strftime('%Y-%m-%d')
+
+  recent_commits_uri = "search/commits?q=author-date:>#{date_limit} author:monkey-man"
+  get_stub("user_recent_commits", recent_commits_uri)
 end
 
 # Add additional requires below this line. Rails is not loaded until this point!

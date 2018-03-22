@@ -92,6 +92,23 @@
         <%= repo.name %>
       <% end %>
     </div>
+
+    <div class="recent-commits">
+      <p>Contribution Activity - Recent Commits</p>
+      <% 25.times do |i| %>
+        <div class="commit-repo-name">
+          <%= @recent_commits[i].repo_name %>
+        </div>
+
+        <div class="commit-date">
+          <%= @recent_commits[i].date[0..9] %>
+        </div>
+
+        <div class="commit-message">
+          <%= @recent_commits[i].message %>
+        </div>
+      <% end %>
+    </div>
   </main>
 
   <footer class="footer">
