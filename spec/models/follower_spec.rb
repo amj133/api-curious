@@ -13,6 +13,6 @@ describe Follower, type: :model do
   end
 
   it "sets attributes with reader methods" do
-    expect(subject.username).to eq("Frank")
+    expect(subject.login).to eq("Frank")
   end
 end

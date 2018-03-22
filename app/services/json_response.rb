@@ -5,7 +5,7 @@ module JsonResponse
   end
 
   def token
-    {"access_token" => user.oauth_token}
+    {"access_token" => user.oauth_token} if user.class == User
   end
 
   def json_response(uri, header = {})

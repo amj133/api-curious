@@ -14,7 +14,7 @@ describe GithubFollowersByUser do
 
         expect(search.followers.count).to eq(2)
         expect(search.followers.first).to be_a(Follower)
-        expect(search.followers.first.username).to eq("mgmilton")
+        expect(search.followers.first.login).to eq("mgmilton")
       end
     end
   end

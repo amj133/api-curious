@@ -1,8 +1,8 @@
 class Follower
-  attr_reader :username
+  attr_reader :login
 
   def initialize(attrs)
-    @username = attrs[:login]
+    @login = attrs[:login]
   end
 
 end
