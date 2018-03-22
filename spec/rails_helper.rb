@@ -15,6 +15,26 @@ VCR.configure do |config|
   config.filter_sensitive_data('<GITHUB_API_KEY>') { ENV['GITHUB_TEST_ENVIRONMENT_ACCESS_TOKEN']}
 end
 
+def get_stub(filename, uri)
+  json_response = File.open("./spec/fixtures/#{filename}.json")
+  stub_request(:get, "https://api.github.com/#{uri}")
+    .to_return(status: 200, body: json_response)
+end
+
+def monkey_man_test_stubs
+  repo_uri = "users/monkey-man/repos"
+  get_stub("user_repos", repo_uri)
+
+  follower_uri = "users/monkey-man/followers"
+  get_stub("user_followers", follower_uri)
+
+  following_uri = "users/monkey-man/following"
+  get_stub("user_following", following_uri)
+
+  starred_uri = "users/monkey-man/starred"
+  get_stub("user_starred", starred_uri)
+end
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
