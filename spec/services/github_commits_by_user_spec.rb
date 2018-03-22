@@ -17,8 +17,7 @@ describe GithubCommitsByUser do
         expect(search.commits.count).to eq(30)
         expect(search.commits.first).to be_a(Commit)
         expect(search.commits.first.repo_name).to eq("api-curious")
-        end
-      # end
+      end
     end
   end
 end

@@ -10,13 +10,7 @@ describe GithubReposByUser do
                avatar_url: "https://monkeys-rule.org")
         search = GithubReposByUser.new(user)
 
-        json_response = File.open("./spec/fixtures/user_repos.json")
-        stub_request(:get, "https://api.github.com/users/monkey-man/repos").with( headers: {
-          'Accept'=>'*/*',
-          'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-          'User-Agent'=>'Faraday v0.14.0',
-          'access_token'=> 12345
-           }).to_return(status: 200, body: json_response, headers: {})
+        get_stub("user_repos", "users/#{user.login}/repos")
 
         expect(search.repos.count).to eq(30)
         expect(search.repos.first).to be_a(Repository)
