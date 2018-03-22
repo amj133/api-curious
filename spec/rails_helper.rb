@@ -41,6 +41,12 @@ def monkey_man_test_stubs
 
   recent_commits_uri = "search/commits?q=author-date:>#{date_limit} author:monkey-man"
   get_stub("user_recent_commits", recent_commits_uri)
+
+  follower_1_commits_uri = "search/commits?q=author-date:>#{date_limit} author:mgmilton"
+  get_stub("user_follower_1_commits", follower_1_commits_uri)
+
+  follower_2_commits_uri = "search/commits?q=author-date:>#{date_limit} author:lnchambers"
+  get_stub("user_follower_1_commits", follower_2_commits_uri)
 end
 
 # Add additional requires below this line. Rails is not loaded until this point!
