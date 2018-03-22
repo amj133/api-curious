@@ -1,11 +1,18 @@
 require 'rails_helper'
 
 describe Starred, type: :model do
-  let(:full_name) { "Spider Steve" }
-  subject { Starred.new(full_name) }
+  let(:attrs) {
+    {
+      full_name: "Spider Steve"
+    }
+  }
+  subject { Starred.new(attrs) }
 
-  it "exists and has a full name" do
+  it "exists" do
     expect(subject).to be_a(Starred)
+  end
+
+  it "sets attributes with reader methods" do
     expect(subject.full_name).to eq("Spider Steve")
   end
 end
