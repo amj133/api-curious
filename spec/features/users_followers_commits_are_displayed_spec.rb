@@ -15,7 +15,7 @@ describe "users followers are displayed" do
 
     within(".followers-feed") do
       expect(page).to have_content("mgmilton")
-      expect(page).to have_css("followers-recent-commits")
+      expect(page).to have_css(".followers-recent-commits")
       expect(page).to have_content("api-curious")
     end
   end
