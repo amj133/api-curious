@@ -1,9 +1,11 @@
 class Commit
-  attr_reader :name, :url
+  attr_reader :repo_name, :date, :message
 
-  def initialize(name, url)
-    @name = name
-    @url = url
+  def initialize(attrs = {})
+    binding.pry
+    @repo_name = attrs[:repository][:name]
+    @date = attrs[:commit][:author][:date]
+    @message = attrs[:commit][:message]
   end
 
 end

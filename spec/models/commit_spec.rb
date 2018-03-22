@@ -1,13 +1,22 @@
 require 'rails_helper'
 
 describe Commit, type: :model do
-  let(:name) { "monkey man"}
-  let(:url) { "https://monkeys-rock.com"}
-  subject{ Commit.new(name, url) }
+  let(:attrs) {
+      {
+        commit: {author: {date: "2018-03-19T11:13:53.000-06:00"},
+                 message: "initial commit - project setup"},
+        repository: {name: "api-curious"}
+      }
+  }
+  subject{ Commit.new(attrs) }
 
-  it "exists and has a url" do
+  it "exists" do
     expect(subject).to be_a(Commit)
-    expect(subject.name).to eq("monkey man")
-    expect(subject.url).to eq("https://monkeys-rock.com")
+  end
+
+  it "sets attributes with reader methods" do
+    expect(subject.repo_name).to eq("api-curious")
+    expect(subject.date).to eq("2018-03-19T11:13:53.000-06:00")
+    expect(subject.message).to eq("initial commit - project setup")
   end
 end
