@@ -1,11 +1,18 @@
 require 'rails_helper'
 
 describe Follower, type: :model do
-  let(:username) { "Frank" }
-  subject{ Follower.new(username) }
+  let(:attrs) {
+    {
+      login: "Frank"
+    }
+  }
+  subject{ Follower.new(attrs) }
 
-  it "exists and has a username" do
+  it "exists" do
     expect(subject).to be_a(Follower)
+  end
+
+  it "sets attributes with reader methods" do
     expect(subject.username).to eq("Frank")
   end
 end

@@ -18,16 +18,6 @@ RSpec.describe User, type: :model do
   }
 
   it "can be created from oauth hash" do
-    # auth = {"uid" => 31484552,
-    #         "info" =>
-    #           {"email"=>"amj@vt.edu", "urls" => {"GitHub" => "https://github.com/amj133"}},
-    #         "credentials" => {"token" => "12345", "expires" => false},
-    #         "extra" =>
-    #            {"raw_info" =>
-    #              {"login" => "amj133",
-    #               "avatar_url" => "https://avatars0.githubusercontent.com/u/31484552?v=4",
-    #               "id" => 31484552}}}
-
     user = User.from_omniauth(auth)
 
     expect(user.uid).to eq("15")

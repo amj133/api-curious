@@ -6,6 +6,43 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require 'support/factory_bot'
+require 'webmock/rspec'
+require 'vcr'
+
+VCR.configure do |config|
+  config.ignore_request do |request|
+    request.uri == "https://api.github.com/login/oauth/authorize"
+  end
+  config.cassette_library_dir = "spec/fixtures/cassettes"
+  config.hook_into :webmock
+  config.filter_sensitive_data('<GITHUB_API_KEY>') { ENV['GITHUB_TEST_ENVIRONMENT_ACCESS_TOKEN']}
+end
+
+def get_stub(filename, uri)
+  json_response = File.open("./spec/fixtures/#{filename}.json")
+  stub_request(:get, "https://api.github.com/#{uri}")
+    .to_return(status: 200, body: json_response)
+end
+
+def monkey_man_test_stubs
+  repo_uri = "users/monkey-man/repos"
+  get_stub("user_repos", repo_uri)
+
+  follower_uri = "users/monkey-man/followers"
+  get_stub("user_followers", follower_uri)
+
+  following_uri = "users/monkey-man/following"
+  get_stub("user_following", following_uri)
+
+  starred_uri = "users/monkey-man/starred"
+  get_stub("user_starred", starred_uri)
+
+  date_limit = (Date.today - 14).strftime('%Y-%m-%d')
+
+  recent_commits_uri = "search/commits?q=author-date:>#{date_limit} author:monkey-man"
+  get_stub("user_recent_commits", recent_commits_uri)
+end
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -56,7 +93,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
-
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|

@@ -1,8 +1,8 @@
 class Following
   attr_reader :username
 
-  def initialize(username)
-    @username = username
+  def initialize(attrs = {})
+    @username = attrs[:login]
   end
 
 end
