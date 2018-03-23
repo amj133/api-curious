@@ -1,19 +1,21 @@
 class GithubServiceRepoSearch
   include JsonResponse
 
-  def initialize(user, user_id, page = 1)
+  def initialize(user, page = 1)
     @user = user
-    @user_id = user_id
     @page = page
   end
 
   def run
-    page > 1 ? path = user_id : path = user.login
-    json_response("users/#{path}/repos?page=#{page}")
+    if page == 1
+      json_response("users/#{user.login}/repos?page=#{page}")
+    else
+      json_response("user/#{user.uid}/repos?page=#{page}")
+    end
   end
 
   private
 
-    attr_reader :user, :page, :user_id
+    attr_reader :user, :page
 
 end

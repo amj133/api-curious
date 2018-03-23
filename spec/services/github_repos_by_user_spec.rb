@@ -23,9 +23,9 @@ describe GithubReposByUser do
                oauth_token: 12345,
                avatar_url: "https://monkeys-rule.org")
 
-        get_stub("user_repos_1_of_3", "users/#{user.login}/repos?page=1", {"link" => "<https://api.github.com/user/7215067/repos?page=2>; rel=\"next\", <https://api.github.com/user/7215067/repos?page=3>; rel=\"last\""})
-        get_stub("user_repos_2_of_3", "users/7215067/repos?page=2")
-        get_stub("user_repos_3_of_3", "users/7215067/repos?page=3")
+        get_stub("user_repos_1_of_3", "users/#{user.login}/repos?page=1", {"link" => "<https://api.github.com/user/789/repos?page=2>; rel=\"next\", <https://api.github.com/user/789/repos?page=3>; rel=\"last\""})
+        get_stub("user_repos_2_of_3", "user/789/repos?page=2")
+        get_stub("user_repos_3_of_3", "user/789/repos?page=3")
 
         search = GithubReposByUser.new(user)
 

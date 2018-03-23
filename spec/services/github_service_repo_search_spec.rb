@@ -8,8 +8,8 @@ describe GithubServiceRepoSearch do
                   avatar_url: "https://avatars0.githubusercontent.com/u/31484552?v=4")
 
 
-    VCR.use_cassette("Github Service Repo Search")do
-      search = GithubServiceRepoSearch.new(user, 1234).run
+    VCR.use_cassette("Github Service Repo Search") do
+      search = GithubServiceRepoSearch.new(user).run
       raw_repo = search.first
 
       expect(search).to be_an(Array)

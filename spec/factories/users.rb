@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    uid "MyString"
+    uid "789"
     login "MyString"
     email "MyString"
     oauth_token "MyString"

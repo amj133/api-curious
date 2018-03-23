@@ -11,8 +11,7 @@ class GithubReposByUser
   def repos
     repositories = []
     repo_pages.to_i.times do |page|
-      user_id = user_id_from_link_header
-      GithubServiceRepoSearch.new(user, user_id, (page + 1)).run.map do |repo|
+      GithubServiceRepoSearch.new(user, (page + 1)).run.map do |repo|
         repositories << Repository.new(repo)
       end
     end
@@ -21,10 +20,6 @@ class GithubReposByUser
 
   def repo_pages
     link_header.nil? ? 1 : link_header.split(",")[1].split(/page=/)[1][0]
-  end
-
-  def user_id_from_link_header
-    @link_header.split(",")[0].split("/")[4] unless link_header.nil?
   end
 
   private
