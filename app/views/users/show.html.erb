@@ -109,6 +109,22 @@
         </div>
       <% end %>
     </div>
+
+    <div class="followers-feed">
+      <p>Followers Activity - Recent Commits</p>
+      <% @followers_and_commits.each do |follower, commit| %>
+        <div class="followers-feed-name">
+          <%= follower.login %>
+          <ul class="followers-recent-commits">
+            <% 10.times do |i| %>
+              <li><%= commit[i].repo_name %></li>
+              <li><%= commit[i].date %></li>
+              <li><%= commit[i].message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
   </main>
 
   <footer class="footer">

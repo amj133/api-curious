@@ -42,19 +42,19 @@ class GithubService
   #   end
   # end
 
-  def find_recent_commits(username = @user.login)
-    response = @conn.get do |req|
-      req.url "/search/commits?q=author-date:>#{@date_limit} author:#{username}"
-      req.headers['Accept'] = "application/vnd.github.cloak-preview+json"
-    end
-
-    response = JSON.parse(response.body, symbolize_names: true)
-    commits = []
-    25.times do |i|
-      commits << Commit.new(response[:items][i][:repository][:name], response[:items][i][:url])
-    end
-    commits
-  end
+  # def find_recent_commits(username = @user.login)
+  #   response = @conn.get do |req|
+  #     req.url "/search/commits?q=author-date:>#{@date_limit} author:#{username}"
+  #     req.headers['Accept'] = "application/vnd.github.cloak-preview+json"
+  #   end
+  #
+  #   response = JSON.parse(response.body, symbolize_names: true)
+  #   commits = []
+  #   25.times do |i|
+  #     commits << Commit.new(response[:items][i][:repository][:name], response[:items][i][:url])
+  #   end
+  #   commits
+  # end
 
   def find_followers_commits
     followers_and_commits = {}
