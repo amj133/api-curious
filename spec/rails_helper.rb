@@ -18,13 +18,16 @@ VCR.configure do |config|
   config.filter_sensitive_data('<GITHUB_API_KEY>') { ENV['GITHUB_TEST_ENVIRONMENT_ACCESS_TOKEN']}
 end
 
-def get_stub(filename, uri)
+def get_stub(filename, uri, headers = {})
   json_response = File.open("./spec/fixtures/#{filename}.json")
   stub_request(:get, "https://api.github.com/#{uri}")
-    .to_return(status: 200, body: json_response)
+    .to_return(status: 200, body: json_response, headers: {})
 end
 
 def monkey_man_test_stubs
+  repo_uri = "users/monkey-man/repos?page=1"
+  get_stub("user_repos", repo_uri)
+
   repo_uri = "users/monkey-man/repos"
   get_stub("user_repos", repo_uri)
 

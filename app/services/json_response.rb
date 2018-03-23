@@ -9,11 +9,20 @@ module JsonResponse
   end
 
   def json_response(uri, header = {})
+    response = send_request(uri, header)
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def response_headers(uri, header = {})
+    response = send_request(uri, header)
+    response.headers[:link]
+  end
+
+  def send_request(uri, header = {})
     response = conn.get do |req|
       req.url uri
       req.headers[header.keys.first] = header.values.first
     end
-    JSON.parse(response.body, symbolize_names: true)
   end
 
 end

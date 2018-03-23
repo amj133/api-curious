@@ -9,7 +9,7 @@ describe GithubServiceRepoSearch do
 
 
     VCR.use_cassette("Github Service Repo Search")do
-      search = GithubServiceRepoSearch.new(user).run
+      search = GithubServiceRepoSearch.new(user, 1234).run
       raw_repo = search.first
 
       expect(search).to be_an(Array)
