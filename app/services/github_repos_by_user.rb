@@ -10,7 +10,7 @@ class GithubReposByUser
 
   def repos
     repositories = []
-    repo_pages.times do |page|
+    repo_pages.to_i.times do |page|
       user_id = user_id_from_link_header
       GithubServiceRepoSearch.new(user, user_id, (page + 1)).run.map do |repo|
         repositories << Repository.new(repo)

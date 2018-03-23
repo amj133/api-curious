@@ -21,7 +21,7 @@ end
 def get_stub(filename, uri, headers = {})
   json_response = File.open("./spec/fixtures/#{filename}.json")
   stub_request(:get, "https://api.github.com/#{uri}")
-    .to_return(status: 200, body: json_response, headers: {})
+    .to_return(status: 200, body: json_response, headers: headers)
 end
 
 def monkey_man_test_stubs

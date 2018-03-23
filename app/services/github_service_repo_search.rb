@@ -8,12 +8,12 @@ class GithubServiceRepoSearch
   end
 
   def run
-    page > 1 ? path = user_id : path = user.login 
+    page > 1 ? path = user_id : path = user.login
     json_response("users/#{path}/repos?page=#{page}")
   end
 
   private
 
-    attr_reader :user, :page
+    attr_reader :user, :page, :user_id
 
 end

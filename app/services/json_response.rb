@@ -19,7 +19,7 @@ module JsonResponse
   end
 
   def send_request(uri, header = {})
-    response = conn.get do |req|
+    conn.get do |req|
       req.url uri
       req.headers[header.keys.first] = header.values.first
     end
