@@ -40,7 +40,7 @@ rspec
 * model tests of all ActiveRecord and PORO models
 * service tests of all PORO services
 
-#####Tools and gems used for testing:
+##### Tools and gems used for testing:
 
 * [VCR] (https://github.com/vcr/vcr)
 * [webmock] (https://github.com/bblimke/webmock)
