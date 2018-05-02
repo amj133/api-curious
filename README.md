@@ -42,8 +42,8 @@ rspec
 
 ##### Tools and gems used for testing:
 
-* [VCR] (https://github.com/vcr/vcr)
-* [webmock] (https://github.com/bblimke/webmock)
+* https://github.com/vcr/vcr
+* https://github.com/bblimke/webmock
 * [capybara](https://github.com/teamcapybara/capybara)
 * [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails)
 * [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
